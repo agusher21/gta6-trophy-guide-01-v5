@@ -379,6 +379,7 @@ async function init() {
   readInitialState();
   wireControls();
   renderAll();
+  if (state.roadmapOpen) roadmapViewEl.scrollIntoView();
   if (new URLSearchParams(location.search).get('selftest') === '1') await runSelfTest();
 }
 
