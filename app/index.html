@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Ledger — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <div class="brand-mark">L</div>
+    <div>
+      <h1>Leonida Trophy Ledger</h1>
+      <p class="tagline">GTA VI &middot; 55 PlayStation 5 trophies &middot; one playthrough &middot; about 200 hours &middot; difficulty 4/10</p>
+    </div>
+  </div>
+  <div class="count-box">
+    <span class="count-label">Your count</span>
+    <div class="stepper">
+      <button id="step-down" type="button" aria-label="Uncheck last earned trophy">&minus;</button>
+      <span id="earned-count" class="earned-count">0 / 55</span>
+      <button id="step-up" type="button" aria-label="Check next trophy in roadmap order">+</button>
+    </div>
+    <div class="goal-bar" role="progressbar" aria-label="Progress to the platinum">
+      <div id="goal-fill" class="goal-fill" style="width:0%"></div>
+      <span class="goal-text">GOAL &middot; 100% AND THE PLATINUM</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toolbar" aria-label="Filters and tools">
+  <input id="search" type="search" placeholder="Search a trophy by name&hellip;" aria-label="Search trophies">
+  <div class="kind-filters" role="group" aria-label="Filter by kind">
+    <button type="button" data-kind="all" class="kind-btn active">All</button>
+    <button type="button" data-kind="story" class="kind-btn">Story</button>
+    <button type="button" data-kind="activities" class="kind-btn">Activities</button>
+    <button type="button" data-kind="collectibles" class="kind-btn">Collectibles</button>
+    <button type="button" data-kind="missable" class="kind-btn missable-btn">Missable</button>
+  </div>
+  <select id="grade-filter" aria-label="Filter by grade">
+    <option value="all">All grades</option>
+    <option value="platinum">Platinum</option>
+    <option value="gold">Gold</option>
+    <option value="silver">Silver</option>
+    <option value="bronze">Bronze</option>
+  </select>
+  <label class="spoiler-toggle"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+  <button id="roadmap-toggle" type="button">Roadmap</button>
+  <button id="export-btn" type="button">Export</button>
+  <button id="reset-btn" type="button" title="Clear all earned ticks">Reset</button>
+  <label class="import-label" for="import-file">Import</label>
+  <input id="import-file" type="file" accept="application/json,.json" hidden>
+</nav>
+
+<div id="missable-banner" class="missable-banner" hidden>
+  <strong>Watch out: 1 trophy can be missed.</strong>
+  Positive Mental Attitude &mdash; meditate with Lucia on the balcony at Jason&rsquo;s house in Chapter 1, after the mission Down to Earth. It is gone once Chapter 1 ends.
+</div>
+
+<main class="ledger">
+  <section class="col checklist-col" aria-label="Trophy checklist">
+    <h2>Checklist <span id="shown-count" class="shown-count"></span></h2>
+    <ul id="trophy-list" class="trophy-list"></ul>
+  </section>
+
+  <section class="col detail-col" aria-label="Trophy guide">
+    <h2>Trophy guide</h2>
+    <article id="detail" class="detail"></article>
+  </section>
+
+  <aside class="col side-col" aria-label="Sources and roadmap">
+    <section class="side-block">
+      <h2>Sources</h2>
+      <p class="side-note">Every guide is written in our own words. Each trophy names the guides its facts come from; the official names and descriptions are shown as PlayStation publishes them.</p>
+      <ul class="source-list">
+        <li>PowerPyx &mdash; GTA 6 Trophy Guide &amp; Roadmap</li>
+        <li>PSNProfiles &mdash; GTA VI trophy list</li>
+        <li>TrueTrophies &mdash; GTA VI achievements</li>
+        <li>Exophase &mdash; GTA VI trophy list</li>
+        <li>GTABase &mdash; GTA VI achievement list</li>
+        <li>KeenGamer &mdash; GTA 6 Trophy Guide &amp; Platinum Roadmap</li>
+        <li>GTA Zone &mdash; GTA VI guides</li>
+      </ul>
+      <p class="side-note">No Rockstar Games logo, artwork or screenshots are used anywhere in this guide. The look is our own.</p>
+    </section>
+    <section class="side-block">
+      <h2>Next up</h2>
+      <p id="next-up" class="next-up">Finish the story first.</p>
+    </section>
+    <section class="side-block">
+      <h2>Roadmap to the platinum</h2>
+      <ol id="roadmap" class="roadmap"></ol>
+    </section>
+  </aside>
+</main>
+
+<section id="roadmap-view" class="roadmap-view" hidden>
+  <h2>Roadmap &mdash; seven stages to the platinum</h2>
+  <div id="roadmap-stages" class="roadmap-stages"></div>
+</section>
+
+<footer class="foot">
+  <p>Leonida Trophy Ledger &middot; an unofficial fan guide &middot; Grand Theft Auto VI and PlayStation are trademarks of their owners &middot; progress is saved in your browser (localStorage) and never leaves it.</p>
+</footer>
+
+<div id="selftest" hidden></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
